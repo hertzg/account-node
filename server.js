@@ -1,6 +1,7 @@
 function shutdown () {
     for (var i in users) {
-        fs.writeFileSync('dump/' + i, JSON.stringify(users[i]))
+        var object = users[i].toStorageObject()
+        fs.writeFileSync('dump/' + i, JSON.stringify(object))
     }
     process.exit()
 }
@@ -10,13 +11,14 @@ var fs = require('fs'),
     url = require('url')
 
 var config = require('./config.js'),
-    Error404Page = require('./lib/Error404Page.js')
+    Error404Page = require('./lib/Error404Page.js'),
+    RestoreUser = require('./lib/RestoreUser.js')
 
 var users = Object.create(null)
 fs.readdirSync('dump').forEach(username => {
     if (username === '.gitignore') return
     var content = fs.readFileSync('dump/' + username, 'utf8')
-    users[username] = JSON.parse(content)
+    users[username] = RestoreUser(JSON.parse(content))
 })
 
 var pages = Object.create(null)
