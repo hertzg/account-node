@@ -1,7 +1,7 @@
 function shutdown () {
     for (var i in users) {
         var object = users[i].toStorageObject()
-        fs.writeFileSync('dump/' + i, JSON.stringify(object))
+        fs.writeFileSync('dump/' + i, JSON.stringify(object, null, 4))
     }
     process.exit()
 }
