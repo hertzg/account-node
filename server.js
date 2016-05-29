@@ -8,6 +8,7 @@ var users = Object.create(null)
 
 var pages = Object.create(null)
 pages['/'] = require('./lib/IndexPage.js')
+pages['/signIn'] = require('./lib/SignInPage.js')(users)
 pages['/signUp'] = require('./lib/SignUpPage.js')(users)
 
 http.createServer((req, res) => {
