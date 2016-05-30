@@ -26,6 +26,7 @@ pages['/'] = require('./lib/IndexPage.js')
 pages['/changePassword'] = require('./lib/ChangePasswordPage.js')(users)
 pages['/editProfile'] = require('./lib/EditProfilePage.js')(users)
 pages['/signIn'] = require('./lib/SignInPage.js')(users)
+pages['/signOut'] = require('./lib/SignOutPage.js')(users)
 pages['/signUp'] = require('./lib/SignUpPage.js')(users)
 
 http.createServer((req, res) => {
