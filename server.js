@@ -23,8 +23,10 @@ fs.readdirSync('dump').forEach(username => {
 
 var pages = Object.create(null)
 pages['/'] = require('./lib/IndexPage.js')
+pages['/addContact'] = require('./lib/AddContactPage.js')(users)
 pages['/changePassword'] = require('./lib/ChangePasswordPage.js')(users)
 pages['/editProfile'] = require('./lib/EditProfilePage.js')(users)
+pages['/removeContact'] = require('./lib/RemoveContactPage.js')(users)
 pages['/signIn'] = require('./lib/SignInPage.js')(users)
 pages['/signOut'] = require('./lib/SignOutPage.js')(users)
 pages['/signUp'] = require('./lib/SignUpPage.js')(users)
