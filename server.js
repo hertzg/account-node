@@ -34,6 +34,7 @@ pages['/signOut'] = require('./lib/SignOutPage.js')(users)
 pages['/signUp'] = require('./lib/SignUpPage.js')(users)
 
 http.createServer((req, res) => {
+    console.log('HTTP: ' + req.url)
     var parsedUrl = url.parse(req.url, true)
     var page = pages[parsedUrl.pathname]
     if (page === undefined) page = Error404Page
