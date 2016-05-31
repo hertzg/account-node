@@ -10,3 +10,10 @@ exports.sessionNode = {
     host: '127.0.0.1',
     port: 7703,
 }
+
+exports.log = {
+    debug: true,
+    error: true,
+    http: true,
+    info: true,
+}

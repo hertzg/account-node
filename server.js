@@ -12,6 +12,7 @@ var fs = require('fs'),
 
 var config = require('./config.js'),
     Error404Page = require('./lib/Error404Page.js'),
+    Log = require('./lib/Log.js'),
     RestoreUser = require('./lib/RestoreUser.js')
 
 var users = Object.create(null)
@@ -34,7 +35,7 @@ pages['/signOut'] = require('./lib/SignOutPage.js')(users)
 pages['/signUp'] = require('./lib/SignUpPage.js')(users)
 
 http.createServer((req, res) => {
-    console.log('HTTP: ' + req.url)
+    Log.http(req.method + ' ' + req.url)
     var parsedUrl = url.parse(req.url, true)
     var page = pages[parsedUrl.pathname]
     if (page === undefined) page = Error404Page
