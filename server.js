@@ -35,6 +35,7 @@ pages['/removeReferer'] = require('./lib/Page/RemoveReferer.js')(users)
 pages['/signIn'] = require('./lib/Page/SignIn.js')(users)
 pages['/signOut'] = require('./lib/Page/SignOut.js')(users)
 pages['/signUp'] = require('./lib/Page/SignUp.js')(users)
+pages['/wakeSession'] = require('./lib/Page/WakeSession.js')(users)
 
 http.createServer((req, res) => {
     Log.http(req.method + ' ' + req.url)
