@@ -19,7 +19,7 @@ var users = Object.create(null)
 fs.readdirSync('dump').forEach(username => {
     if (username === '.gitignore') return
     var content = fs.readFileSync('dump/' + username, 'utf8')
-    users[username] = RestoreUser(JSON.parse(content))
+    users[username] = RestoreUser(username, JSON.parse(content))
 })
 
 var pages = Object.create(null)
@@ -36,6 +36,8 @@ pages['/removeReferer'] = require('./lib/Page/RemoveReferer.js')(users)
 pages['/signIn'] = require('./lib/Page/SignIn.js')(users)
 pages['/signOut'] = require('./lib/Page/SignOut.js')(users)
 pages['/signUp'] = require('./lib/Page/SignUp.js')(users)
+pages['/userOffline'] = require('./lib/Page/UserOffline.js')(users)
+pages['/userOnline'] = require('./lib/Page/UserOnline.js')(users)
 pages['/wakeSession'] = require('./lib/Page/WakeSession.js')(users)
 
 http.createServer((req, res) => {
