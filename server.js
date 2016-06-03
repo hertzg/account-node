@@ -36,6 +36,7 @@ pages['/receiveTextMessage'] = require('./lib/Page/ReceiveTextMessage.js')(users
 pages['/removeContact'] = require('./lib/Page/RemoveContact.js')(users)
 pages['/removeReferer'] = require('./lib/Page/RemoveReferer.js')(users)
 pages['/removeRequest'] = require('./lib/Page/RemoveRequest.js')(users)
+pages['/restoreSession'] = require('./lib/Page/RestoreSession.js')(users)
 pages['/sendTextMessage'] = require('./lib/Page/SendTextMessage.js')(users)
 pages['/signIn'] = require('./lib/Page/SignIn.js')(users)
 pages['/signOut'] = require('./lib/Page/SignOut.js')(users)
