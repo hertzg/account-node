@@ -12,18 +12,9 @@ var fs = require('fs'),
 
 var config = require('./config.js'),
     Error404Page = require('./lib/Error404Page.js'),
-    Log = require('./lib/Log.js'),
-    RestoreUser = require('./lib/RestoreUser.js')
+    Log = require('./lib/Log.js')
 
-var users = Object.create(null)
-;(() => {
-    var groups = Object.create(null)
-    fs.readdirSync('dump').forEach(username => {
-        if (username === '.gitignore') return
-        var content = fs.readFileSync('dump/' + username, 'utf8')
-        users[username] = RestoreUser(groups, username, JSON.parse(content))
-    })
-})()
+var users = require('./lib/RestoreUsers.js')()
 
 var pages = Object.create(null)
 pages['/'] = require('./lib/Page/Index.js')
