@@ -16,11 +16,14 @@ var config = require('./config.js'),
     RestoreUser = require('./lib/RestoreUser.js')
 
 var users = Object.create(null)
-fs.readdirSync('dump').forEach(username => {
-    if (username === '.gitignore') return
-    var content = fs.readFileSync('dump/' + username, 'utf8')
-    users[username] = RestoreUser(username, JSON.parse(content))
-})
+;(() => {
+    var groups = Object.create(null)
+    fs.readdirSync('dump').forEach(username => {
+        if (username === '.gitignore') return
+        var content = fs.readFileSync('dump/' + username, 'utf8')
+        users[username] = RestoreUser(groups, username, JSON.parse(content))
+    })
+})()
 
 var pages = Object.create(null)
 pages['/'] = require('./lib/Page/Index.js')
