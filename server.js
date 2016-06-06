@@ -37,6 +37,7 @@ pages['/sessionNode/ignoreRequest'] = require('./lib/Page/SessionNode/IgnoreRequ
 pages['/sessionNode/overrideContactProfile'] = require('./lib/Page/SessionNode/OverrideContactProfile.js')(users)
 pages['/sessionNode/removeContact'] = require('./lib/Page/SessionNode/RemoveContact.js')(users)
 pages['/sessionNode/removeRequest'] = require('./lib/Page/SessionNode/RemoveRequest.js')(users)
+pages['/sessionNode/removeSession'] = require('./lib/Page/SessionNode/RemoveSession.js')(users)
 pages['/sessionNode/sendTextMessage'] = require('./lib/Page/SessionNode/SendTextMessage.js')(users)
 pages['/sessionNode/signOut'] = require('./lib/Page/SessionNode/SignOut.js')(users)
 pages['/sessionNode/wakeSession'] = require('./lib/Page/SessionNode/WakeSession.js')(users)
